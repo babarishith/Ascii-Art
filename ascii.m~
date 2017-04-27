@@ -5,10 +5,10 @@ im = proc(im);
 x = 58;
 y = 88;
 w = 5;
-siz = size(im);
+s = size(im);
 fileID = fopen('art.txt','w');
-for x=1:floor(siz(1)/w -1)
-    for y=1:floor(siz(2)/w -1)
+for x=1:floor(s(1)/5 -1)
+    for y=1:floor(s(2)/5-1)
         nose = ed(w*x:w*x+w-1,w*y:w*y+w-1);
         % v = proc(imresize(imread('vert.png'), [5,5]));
         % d = proc(imread('diag.png'));
@@ -36,8 +36,6 @@ for x=1:floor(siz(1)/w -1)
         else 
             s = '\';
         end
-        fprintf(fileID, '%s', s);
-    end
-    fprintf(fileID, '\n');
+        fwrite
 end
-% imshow(im);
+imshow(im);
