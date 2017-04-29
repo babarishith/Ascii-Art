@@ -1,0 +1,16 @@
+function [pim,zoff] = aiss(img, center)
+im = imresize(img, [42,42]);
+im = padarray(im, [21,21
+
+rs = 1:5 ;
+
+ang = 12;
+ang = linspace(0, 2*pi , round(2*pi/ang) );
+ang = ang(1: (end-1) );
+
+[ang_img,rs_img] = meshgrid(ang,rs);
+[x,y] = pol2cart(ang_img,rs_img);
+
+zoff = complex(x,y) + center;
+
+pim = interp2(img,real(zoff),imag(zoff),'nearest');
